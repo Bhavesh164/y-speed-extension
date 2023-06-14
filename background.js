@@ -27,7 +27,7 @@ chrome.commands.onCommand.addListener(function(command) {
 							elements[i].textContent=speed;
 						}
 					}
-					document.querySelector('#ytp-id-18').style.display="none";
+					document.querySelector('.ytp-popup.ytp-settings-menu').style.display="none";
 
 				}
 			});
