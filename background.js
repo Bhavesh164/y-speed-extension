@@ -56,7 +56,6 @@ chrome.commands.onCommand.addListener(function(command) {
 					
 					document.querySelector('.ytp-popup.ytp-settings-menu').style.display="none";
 					gearIcon.click();
-					document.querySelector('.ytp-subtitles-button.ytp-button').click();
 
 					// Get the 'CC' button
 					var ccButton = document.querySelector('.ytp-subtitles-button');
