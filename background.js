@@ -27,8 +27,36 @@ chrome.commands.onCommand.addListener(function(command) {
 							elements[i].textContent=speed;
 						}
 					}
-					document.querySelector('.ytp-popup.ytp-settings-menu').style.display="none";
+					var elements = document.getElementsByClassName('ytp-menuitem');
 
+					// Loop through the elements
+					for(var i = 0; i < elements.length; i++){
+						// Check if the element has the 'aria-haspopup' attribute set to 'true'
+						if(elements[i].getAttribute('aria-haspopup') === 'true'){
+							// Simulate a click event on the element
+							elements[i].click();
+							break; // Exit the loop if you only want to click the first matching element
+						}
+					}
+					// Get the parent element
+					var parentElement = document.querySelector('.ytp-popup.ytp-settings-menu');
+
+					if(parentElement) {
+						console.log("inside the element")
+						// Get all elements with the class 'ytp-menuitem' within the parent element
+						var elements = parentElement.getElementsByClassName('ytp-menuitem');
+						// Check if the last element's 'aria-checked' attribute is 'true'
+						if(elements[elements.length - 1].getAttribute('aria-checked') === 'true'){
+							// If so, simulate a click event on the fourth element (Normal speed)
+							elements[elements.length - 5].click();
+						} else {
+							// If not, simulate a click event on the last element (Speed 2)
+							elements[elements.length - 1].click();
+						}
+					}
+					
+					document.querySelector('.ytp-popup.ytp-settings-menu').style.display="none";
+					gearIcon.click();
 				}
 			});
 		});
