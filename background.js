@@ -40,34 +40,15 @@ chrome.commands.onCommand.addListener(function(command) {
 					}
 					// Get the parent element
 					var parentElement = document.querySelector('.ytp-popup.ytp-settings-menu');
-
-					if(parentElement) {
-						// Get all elements with the class 'ytp-menuitem' within the parent element
-						var elements = parentElement.getElementsByClassName('ytp-menuitem');
-						// Check if the last element's 'aria-checked' attribute is 'true'
-						if(elements[elements.length - 1].getAttribute('aria-checked') === 'true'){
-							// If so, simulate a click event on the fourth element (Normal speed)
-							elements[elements.length - 5].click();
-						} else {
-							// If not, simulate a click event on the last element (Speed 2)
-							elements[elements.length - 1].click();
-						}
-					}
 					
 					document.querySelector('.ytp-popup.ytp-settings-menu').style.display="none";
 					gearIcon.click();
 
-					// Get the 'CC' button
 					var ccButton = document.querySelector('.ytp-subtitles-button');
-
-					// Check if the button exists
 					if(ccButton) {
-						// Check if the 'aria-pressed' attribute is 'true'
 						if(ccButton.getAttribute('aria-pressed') === 'true') {
 							ccButton.click();
-						} else {
-							console.log('Captions are off');
-						}
+						} 
 					}
 				}
 			});
